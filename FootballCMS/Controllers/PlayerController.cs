@@ -41,7 +41,7 @@ namespace FootballCMS.Controllers
             dynamic response = await client.GetAsync(Url).ConfigureAwait(false);
             string fullname = response.player.name;
             ViewBag.fullname = fullname;
-            TempData [fullname]
+            
 
             //string result = response.Content.ReadAsStringAsync().Result;
         }
