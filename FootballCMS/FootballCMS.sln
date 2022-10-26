@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballCMS", "FootballCMS.csproj", "{B06FEB81-BAF6-4AFB-BB31-7EAE3E10397D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B06FEB81-BAF6-4AFB-BB31-7EAE3E10397D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06FEB81-BAF6-4AFB-BB31-7EAE3E10397D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06FEB81-BAF6-4AFB-BB31-7EAE3E10397D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06FEB81-BAF6-4AFB-BB31-7EAE3E10397D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB39CA6B-A11A-4458-A953-E8199D3C4137}
+	EndGlobalSection
+EndGlobal
