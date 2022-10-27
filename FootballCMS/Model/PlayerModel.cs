@@ -3,9 +3,9 @@ namespace FootballCMS.Model
 {
     public class PlayerModel
     {
-        public string fullName { get; set; }
+        public Task<string> fullName { get; set; }
 
-        public PlayerModel(string fullName)
+        public PlayerModel(Task<string> fullName)
         {
             this.fullName = fullName;
         }

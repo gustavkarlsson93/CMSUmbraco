@@ -2,31 +2,25 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using FootballCMS.Controllers;
+@model FootballCMS.Model.PlayerModel;
 @using System.Net.Http;
 @using System.Net.Http.Headers;
 @using Newtonsoft.Json.Linq;
+
 @{
     Layout = null;
 }
 
-@ViewBag.fullname;
-
-
-@{
-    string Url = "https://futdb.app/api/players/3";
-    HttpClient client = new HttpClient();
-    client.BaseAddress = new Uri("https://futdb.app/api/players/2");
-    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    client.DefaultRequestHeaders.Add("X-AUTH-TOKEN", "522b0a4c-2ee6-438d-9a1f-579851e2b96b");
-
-    dynamic response = await client.GetAsync(Url).ConfigureAwait(false);
-
-    string result = response.Content.ReadAsStringAsync().Result;
-
-    dynamic data = JObject.Parse(result);
-    string name = data.player.name;
+@{if (Model.fullName != null)
+    {
+        <p>@Model.fullName</p>
+    }
 }
-@name
+
+
+
+
+
 
 
 

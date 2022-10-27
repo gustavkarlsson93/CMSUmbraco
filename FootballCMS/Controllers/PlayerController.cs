@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using FootballCMS.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Newtonsoft.Json.Linq;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
+using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.Routing;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Web;
 using Umbraco.Cms.Infrastructure.Persistence;
+using Umbraco.Cms.Web.Common.Controllers;
+
+
 using Umbraco.Cms.Web.Website.Controllers;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,19 +24,18 @@ using Umbraco.Cms.Web.Website.Controllers;
 namespace FootballCMS.Controllers
 {
     
-    [Route("api/[controller]")]
-    public class PlayerController : SurfaceController
+    [Route("Views/Home[controller]")]
+    public class PlayerController : RenderController
     {
+
         public const string PARTIAL_VIEW_FOLDER = "~/Views/Home/";
-        
+        private IPublishedValueFallback publishedValueFallback;
 
-        public PlayerController(IUmbracoContextAccessor umbracoContextAccessor, IUmbracoDatabaseFactory databaseFactory, ServiceContext services, AppCaches appCaches, IProfilingLogger profilingLogger, IPublishedUrlProvider publishedUrlProvider) : base(umbracoContextAccessor, databaseFactory, services, appCaches, profilingLogger, publishedUrlProvider)
+        public PlayerController(ILogger<RenderController> logger, ICompositeViewEngine compositeViewEngine, IUmbracoContextAccessor umbracoContextAccessor) : base(logger, compositeViewEngine, umbracoContextAccessor)
         {
-
         }
 
-       
-        public async Task GetplayerAsync()
+        public async Task<string> GetplayerAsync()
         {
             string Url = "https://futdb.app/api/players/3";
             HttpClient client = new HttpClient();
@@ -39,22 +44,28 @@ namespace FootballCMS.Controllers
             client.DefaultRequestHeaders.Add("X-AUTH-TOKEN", "522b0a4c-2ee6-438d-9a1f-579851e2b96b");
 
             dynamic response = await client.GetAsync(Url).ConfigureAwait(false);
-            string fullname = response.player.name;
-            ViewBag.fullname = fullname;
-            
 
-            //string result = response.Content.ReadAsStringAsync().Result;
+            string result = response.Content.ReadAsStringAsync().Result;
+
+            dynamic data = JObject.Parse(result);
+            string name = data.player.name;
+
+
+            return name;
         }
 
-        //public string GetPlayer()
-        //{ 
-        //    return fullname;
-        //}
-        
+        public override IActionResult Index()
+        {
+            var name = GetplayerAsync();
+            PlayerModel showPlayer = new PlayerModel(name);
+            showPlayer.fullName = name;
+            return View(showPlayer);
+        }
 
 
 
-        
+
+
     }
 }
 
