@@ -264,7 +264,7 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
-
+!/App_Data/[Pp]ackages/* !/[Uu]mbraco/[Dd]eveloper/[Pp]ackages/*
 
 # Business Intelligence projects
 *.rdl.data
