@@ -23,7 +23,7 @@ using Umbraco.Cms.Web.Website.Controllers;
 
 namespace FootballCMS.Controllers
 {
-    
+
     [Route("Views/Home[controller]")]
     public class PlayerController : RenderController
     {
@@ -40,7 +40,7 @@ namespace FootballCMS.Controllers
             string Url = "https://futdb.app/api/players/3";
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://futdb.app/api/players/2");
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("image/png"));
             client.DefaultRequestHeaders.Add("X-AUTH-TOKEN", "522b0a4c-2ee6-438d-9a1f-579851e2b96b");
 
             dynamic response = await client.GetAsync(Url).ConfigureAwait(false);
