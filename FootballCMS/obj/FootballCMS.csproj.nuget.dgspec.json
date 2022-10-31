@@ -1,0 +1,78 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/fredrikalm/Projects/Publiceringsvektyg/gruppupgift/CMSUmbraco/FootballCMS/FootballCMS.csproj": {}
+  },
+  "projects": {
+    "/Users/fredrikalm/Projects/Publiceringsvektyg/gruppupgift/CMSUmbraco/FootballCMS/FootballCMS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/fredrikalm/Projects/Publiceringsvektyg/gruppupgift/CMSUmbraco/FootballCMS/FootballCMS.csproj",
+        "projectName": "FootballCMS",
+        "projectPath": "/Users/fredrikalm/Projects/Publiceringsvektyg/gruppupgift/CMSUmbraco/FootballCMS/FootballCMS.csproj",
+        "packagesPath": "/Users/fredrikalm/.nuget/packages/",
+        "outputPath": "/Users/fredrikalm/Projects/Publiceringsvektyg/gruppupgift/CMSUmbraco/FootballCMS/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/fredrikalm/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.ICU.ICU4C.Runtime": {
+              "target": "Package",
+              "version": "[68.2.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Umbraco.Cms": {
+              "target": "Package",
+              "version": "[10.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
